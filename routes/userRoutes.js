@@ -3,6 +3,7 @@ import express from 'express';
 import {
   userRegister,
   registrationValidations,
+  getAllUsers,
 } from '../controllers/userController.js';
 
 const router = express.Router();
@@ -11,5 +12,6 @@ const router = express.Router();
 //@route  POST /register
 //@access Public
 router.post('/register', registrationValidations, userRegister);
+router.get('/users', getAllUsers);
 
 export default router;

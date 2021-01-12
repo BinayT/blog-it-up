@@ -51,4 +51,16 @@ const userRegister = async (req, res) => {
   }
 };
 
-export { userRegister, registrationValidations };
+//@Desc   Get all Users
+//@route  GET /users
+//@access Public
+const getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find({});
+    res.json(users);
+  } catch (error) {
+    res.json(error);
+  }
+};
+
+export { userRegister, registrationValidations, getAllUsers };
