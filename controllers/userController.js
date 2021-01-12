@@ -27,14 +27,25 @@ const userRegister = async (req, res) => {
     checkUser &&
       res.status(400).json({ errors: [{ msg: 'Email already in use.' }] });
 
-    const hashPassword = hashPassword(password);
+    const hashedPassword = await hashPassword(password);
     try {
       const user = await User.create({
         name,
         email,
-        password: hashPassword,
+        password: hashedPassword,
       });
-    } catch (error) {}
+
+      const token = jwt.sign({ user }, process.env.SECRET_OR_KEY, {
+        expiresIn: '1d',
+      });
+
+      return res.status(200).json({
+        msg: `Your account of email: ${email} has been created.`,
+        token,
+      });
+    } catch (error) {
+      return res.status(500).json({ errors: error });
+    }
   } catch (error) {
     return res.status(500).json({ errors: error });
   }
