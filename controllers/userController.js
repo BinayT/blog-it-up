@@ -1,6 +1,5 @@
 import User from '../models/userModel.js';
 import { body, validationResult } from 'express-validator';
-import jwt from 'jsonwebtoken';
 
 import hashPassword from '../utils/hashPassword.js';
 import generateToken from '../utils/generateToken.js';
