@@ -3,6 +3,7 @@ import { body, validationResult } from 'express-validator';
 import jwt from 'jsonwebtoken';
 
 import hashPassword from '../utils/hashPassword.js';
+import generateToken from '../utils/generateToken.js';
 
 const registrationValidations = [
   body('email').isEmail().trim().withMessage('Valid email address is required'),
@@ -28,6 +29,7 @@ const userRegister = async (req, res) => {
       res.status(400).json({ errors: [{ msg: 'Email already in use.' }] });
 
     const hashedPassword = await hashPassword(password);
+
     try {
       const user = await User.create({
         name,
@@ -35,9 +37,7 @@ const userRegister = async (req, res) => {
         password: hashedPassword,
       });
 
-      const token = jwt.sign({ user }, process.env.SECRET_OR_KEY, {
-        expiresIn: '1d',
-      });
+      const token = generateToken(user);
 
       return res.status(200).json({
         msg: `Your account of email: ${email} has been created.`,
