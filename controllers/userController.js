@@ -1,5 +1,6 @@
 import User from '../models/userModel.js';
 import { body, validationResult } from 'express-validator';
+import jwt from 'jsonwebtoken';
 
 const registrationValidations = [
   body('email').isEmail().trim().withMessage('Valid email address is required'),
