@@ -2,6 +2,8 @@ import User from '../models/userModel.js';
 import { body, validationResult } from 'express-validator';
 import jwt from 'jsonwebtoken';
 
+import hashPassword from '../utils/hashPassword.js';
+
 const registrationValidations = [
   body('email').isEmail().trim().withMessage('Valid email address is required'),
   body('password')
@@ -22,9 +24,17 @@ const userRegister = async (req, res) => {
 
   try {
     const checkUser = await User.findOne({ email });
-
     checkUser &&
       res.status(400).json({ errors: [{ msg: 'Email already in use.' }] });
+
+    const hashPassword = hashPassword(password);
+    try {
+      const user = await User.create({
+        name,
+        email,
+        password: hashPassword,
+      });
+    } catch (error) {}
   } catch (error) {
     return res.status(500).json({ errors: error });
   }
