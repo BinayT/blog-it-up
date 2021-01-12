@@ -1,5 +1,6 @@
 const userRegister = (req, res) => {
-  res.send('This is register endpoint');
+  const { email, password, name } = req.body;
+  res.json({ email: email, password: password, name: name });
 };
 
 export { userRegister };
