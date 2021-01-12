@@ -9,10 +9,8 @@ const registrationValidations = [
 ];
 
 const loginValidations = [
-  body('email').isEmail().trim().withMessage('Valid email address is required'),
-  body('password')
-    .isLength({ min: 4 })
-    .withMessage('Password must be of at least 4 characters'),
+  body('email').not().isEmpty().trim().withMessage('Email is required'),
+  body('password').not().isEmpty().withMessage('Password is required'),
 ];
 
 const errors = (req) => validationResult(req);

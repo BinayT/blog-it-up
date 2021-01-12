@@ -1,6 +1,9 @@
 import express from 'express';
 
-import { registrationValidations } from '../utils/userInputValidations.js';
+import {
+  registrationValidations,
+  loginValidations,
+} from '../utils/userInputValidations.js';
 import {
   userRegister,
   getAllUsers,
@@ -17,7 +20,7 @@ router.post('/register', registrationValidations, userRegister);
 //@Desc   Logs in an User
 //@route  POST /login
 //@access Public
-router.post('/login', loginUser);
+router.post('/login', loginValidations, loginUser);
 router.get('/users', getAllUsers);
 
 export default router;

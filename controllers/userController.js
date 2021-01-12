@@ -16,8 +16,11 @@ const userRegister = async (req, res) => {
 
   try {
     const checkUser = await User.findOne({ email });
-    checkUser &&
-      res.status(400).json({ errors: [{ msg: 'Email already in use.' }] });
+    if (checkUser) {
+      return res
+        .status(400)
+        .json({ errors: [{ msg: 'Email already in use.' }] });
+    }
 
     const hashedPassword = await hashPassword(password);
 
@@ -45,8 +48,14 @@ const userRegister = async (req, res) => {
 //@Desc   Logs in an User
 //@route  POST /login
 //@access Public
-const loginUser = (req, res) => {
+const loginUser = async (req, res) => {
   const { email, password } = req.body;
+  const errorsArray = errors(req);
+  !errorsArray.isEmpty() &&
+    res.status(400).json({ errors: errorsArray.array() });
+
+  const userExists = await User.findOne({ email });
+  userExists ? res.json({ msg: 'hello' }) : res.json({ msg: 'HI' });
 };
 
 //@Desc   Get all Users
