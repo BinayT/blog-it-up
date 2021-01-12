@@ -1,8 +1,8 @@
 import express from 'express';
 
+import { registrationValidations } from '../utils/userInputValidations.js';
 import {
   userRegister,
-  registrationValidations,
   getAllUsers,
   loginUser,
 } from '../controllers/userController.js';
