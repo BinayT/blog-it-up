@@ -7,6 +7,9 @@ import {
 
 const router = express.Router();
 
+//@Desc   Create new User
+//@route  POST /register
+//@access Public
 router.post('/register', registrationValidations, userRegister);
 
 export default router;

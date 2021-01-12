@@ -1,3 +1,4 @@
+import User from '../models/userModel.js';
 import { body, validationResult } from 'express-validator';
 
 const registrationValidations = [
@@ -7,6 +8,9 @@ const registrationValidations = [
     .withMessage('Password must be of at least 4 characters'),
 ];
 
+//@Desc   Create new User
+//@route  POST /register
+//@access Public
 const userRegister = (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
