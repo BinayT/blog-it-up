@@ -1,8 +1,20 @@
 import User from '../models/userModel.js';
 
-import hashPassword from '../utils/hashPassword.js';
+import { hashPassword, unhashPassword } from '../utils/hashPassword.js';
 import generateToken from '../utils/generateToken.js';
 import { errors } from '../utils/userInputValidations.js';
+
+//@Desc   Get all Users
+//@route  GET /users
+//@access Public
+const getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find({});
+    res.json(users);
+  } catch (error) {
+    res.json(error);
+  }
+};
 
 //@Desc   Create new User
 //@route  POST /register
@@ -54,19 +66,18 @@ const loginUser = async (req, res) => {
   !errorsArray.isEmpty() &&
     res.status(400).json({ errors: errorsArray.array() });
 
-  const userExists = await User.findOne({ email });
-  userExists ? res.json({ msg: 'hello' }) : res.json({ msg: 'HI' });
-};
-
-//@Desc   Get all Users
-//@route  GET /users
-//@access Public
-const getAllUsers = async (req, res) => {
   try {
-    const users = await User.find({});
-    res.json(users);
+    const user = await User.findOne({ email });
+    !user && res.status(404).json({ errors: [{ msg: 'User does not exist' }] });
+
+    const passwordMatch = await unhashPassword(password, user.password);
+    !passwordMatch &&
+      res.status(401).json({ errors: [{ msg: 'Password incorrect.' }] });
+
+    const token = generateToken(user);
+    res.status(200).json({ msg: `Login Successful as ${user.email}`, token });
   } catch (error) {
-    res.json(error);
+    res.status(500).json({ errors: error });
   }
 };
 
