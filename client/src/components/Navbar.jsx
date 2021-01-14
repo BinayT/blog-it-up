@@ -10,6 +10,14 @@ const Navbar = () => {
               <img src='/images/navbar-logo.png' alt='App Logo' />
             </Link>
           </div>
+          <div className='navbar__right'>
+            <li>
+              <Link to='/login'>Login</Link>
+            </li>
+            <li>
+              <Link to='/Register'>register</Link>
+            </li>
+          </div>
         </div>
       </div>
     </nav>
