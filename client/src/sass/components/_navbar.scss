@@ -14,4 +14,24 @@
     align-items: center;
     height: 8rem;
   }
+
+  &__left img {
+    width: 12rem;
+  }
+
+  &__right {
+    display: flex;
+
+    li {
+      list-style-type: none;
+
+      a {
+        text-decoration: none;
+        font-size: 1.4rem;
+        color: $black;
+        padding: 0 1.5rem;
+        outline: none;
+      }
+    }
+  }
 }
