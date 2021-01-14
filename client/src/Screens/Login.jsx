@@ -1,11 +1,45 @@
-import React from 'react';
+import BgImage from '../components/BgImage';
 
-const Login = () => {
+const Register = () => {
   return (
-    <div>
-      <h1>Login page</h1>
+    <div className='row mt-80'>
+      <div className='col-8'>
+        <BgImage />
+      </div>
+      <div className='col-4'>
+        <div className='account'>
+          <div className='account__section'>
+            <form>
+              <div className='group'>
+                <h3 className='form-heading'>Login</h3>
+              </div>
+              <div className='group'>
+                <input
+                  type='email'
+                  className='group__control'
+                  placeholder='Enter your email'
+                />
+              </div>
+              <div className='group'>
+                <input
+                  type='password'
+                  className='group__control'
+                  placeholder='Enter your password'
+                />
+              </div>
+              <div className='group'>
+                <input
+                  type='submit'
+                  className='btn btn-default btn-block'
+                  value='Login'
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
 
-export default Login;
+export default Register;

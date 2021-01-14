@@ -1,4 +1,5 @@
 import BgImage from '../components/BgImage';
+
 const Register = () => {
   return (
     <div className='row mt-80'>
@@ -9,6 +10,9 @@ const Register = () => {
         <div className='account'>
           <div className='account__section'>
             <form>
+              <div className='group'>
+                <h3 className='form-heading'>Register</h3>
+              </div>
               <div className='group'>
                 <input
                   type='text'
