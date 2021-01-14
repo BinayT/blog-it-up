@@ -17,6 +17,9 @@
 
   &__left img {
     width: 12rem;
+    @include responsive(mobile) {
+      margin-left: 2rem;
+    }
   }
 
   &__right {

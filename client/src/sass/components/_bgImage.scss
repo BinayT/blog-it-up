@@ -3,4 +3,8 @@
   width: 100%;
   height: $underNavbar;
   background-size: cover;
+
+  @include responsive(mobile) {
+    display: none;
+  }
 }
