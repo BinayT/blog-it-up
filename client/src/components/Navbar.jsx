@@ -7,7 +7,7 @@ const Navbar = () => {
         <div className='navbar__row'>
           <div className='navbar__left'>
             <Link to='/'>
-              <img src='/images/navbar-logo.png' alt='App Logo' />
+              <img src='/images/navbar-logo.png' alt='' />
             </Link>
           </div>
           <div className='navbar__right'>
@@ -15,7 +15,7 @@ const Navbar = () => {
               <Link to='/login'>Login</Link>
             </li>
             <li>
-              <Link to='/Register'>register</Link>
+              <Link to='/register'>Register</Link>
             </li>
           </div>
         </div>

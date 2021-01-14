@@ -1,4 +1,7 @@
 @import 'sass/base/reset';
 
-// importing scss components
+// importing scss of abstracts file
+@import 'sass/abstracts/variables';
+
+// importing scss components file
 @import 'sass/components/navbar';
