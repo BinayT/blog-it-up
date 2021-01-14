@@ -6,4 +6,12 @@
   height: 8rem;
   background: $white;
   box-shadow: 0 0.3rem 3rem rgba(0, 0, 0, 0.1);
+
+  //& == in SCSS it refers to the parent's className, in our case .navbar, hence its ".navbar__row" or simply "&__row"
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 8rem;
+  }
 }
