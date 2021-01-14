@@ -1,0 +1,11 @@
+.account {
+  height: $underNavbar;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__section {
+    width: 70%;
+  }
+}

@@ -1,6 +1,6 @@
 .bgImage {
   background: url('/images/register-image.jpg');
   width: 100%;
-  height: calc(100vh - 8rem);
+  height: $underNavbar;
   background-size: cover;
 }

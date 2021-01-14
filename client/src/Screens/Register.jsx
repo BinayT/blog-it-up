@@ -6,8 +6,8 @@ const Register = () => {
         <BgImage />
       </div>
       <div className='col-4'>
-        <div className='acccount'>
-          <div className='acccount__section'>
+        <div className='account'>
+          <div className='account__section'>
             <form>
               <div className='group'>
                 <input
