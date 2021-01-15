@@ -11,6 +11,9 @@ const Register = () => {
   const formSubmitHandler = (e) => {
     e.preventDefault();
     alert(`name: ${name}\nemail: ${email}\npassword: ${password}`);
+    setName('');
+    setEmail('');
+    setPassword('');
   };
 
   return (
