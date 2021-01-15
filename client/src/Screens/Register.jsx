@@ -8,6 +8,11 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const formSubmitHandler = (e) => {
+    e.preventDefault();
+    alert(`name: ${name}\nemail: ${email}\npassword: ${password}`);
+  };
+
   return (
     <>
       <Helmet title='Blog It Up | Registration Form' />
@@ -19,7 +24,7 @@ const Register = () => {
         <div className='col-4'>
           <div className='account'>
             <div className='account__section'>
-              <form>
+              <form onSubmit={formSubmitHandler}>
                 <div className='group'>
                   <h3 className='form-heading'>Register</h3>
                 </div>
