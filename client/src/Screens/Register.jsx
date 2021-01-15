@@ -32,7 +32,10 @@ const Register = () => {
 
   return (
     <>
-      <Toaster position='top-right' />
+      <Toaster
+        position='top-right'
+        toastOptions={{ style: { fontSize: '14px' } }}
+      />
       <Helmet title='Blog It Up | Registration Form' />
       <div className='row mt-80'>
         <div className='col-8'>
