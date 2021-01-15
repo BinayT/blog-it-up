@@ -1,3 +1,5 @@
+import {} from '../constants/authConstants';
+
 const initialState = {
   loading: false,
   registerErrors: [],
@@ -6,11 +8,11 @@ const initialState = {
 
 const AuthReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'SET_LOADER':
+    case 'REGISTRATION_REQUEST':
       return { ...state, loading: true };
-    case 'CLOSE_LOADER':
+    case 'REGISTRATION_SUCCESS':
       return { ...state, loading: false };
-    case 'ERROR_LOADER':
+    case 'REGISTRATION_ERROR':
       return { ...state, loading: false, registerErrors: action.payload };
     default:
       return state;
