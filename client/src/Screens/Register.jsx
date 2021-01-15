@@ -32,7 +32,7 @@ const Register = () => {
 
   return (
     <>
-      <Toaster />
+      <Toaster position='top-right' />
       <Helmet title='Blog It Up | Registration Form' />
       <div className='row mt-80'>
         <div className='col-8'>
