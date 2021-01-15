@@ -24,6 +24,15 @@ const Register = () => {
 
     dispatch({ type: 'SET_LOADER' });
 
+    try {
+      const response = await axios.post('/register', data, config);
+      console.log(response);
+      dispatch({ type: 'CLOSE_LOADER' });
+    } catch (error) {
+      dispatch({ type: 'ERROR_LOADER' });
+      console.log(error.response);
+    }
+
     setName('');
     setEmail('');
     setPassword('');
