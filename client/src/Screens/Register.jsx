@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { userRegister } from '../redux/actions/authActions';
 import BgImage from '../components/BgImage';
@@ -12,12 +12,13 @@ const Register = () => {
 
   const dispatch = useDispatch();
 
+  const auth = useSelector((state) => state.auth);
+  const { loading, registerErrors } = auth;
+
   const formSubmitHandler = async (e) => {
     e.preventDefault();
-
     const data = { name, email, password };
     dispatch(userRegister(data));
-
     setName('');
     setEmail('');
     setPassword('');
@@ -76,7 +77,7 @@ const Register = () => {
                   <input
                     type='submit'
                     className='btn btn-default btn-block'
-                    value='Register'
+                    value={loading ? 'Registering...' : 'Register'}
                   />
                 </div>
               </form>
