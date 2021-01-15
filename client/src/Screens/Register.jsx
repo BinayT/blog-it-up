@@ -89,6 +89,7 @@ const Register = () => {
 
                 <div className='group'>
                   <input
+                    disabled={name.length <= 3 || password.length <= 4}
                     type='submit'
                     className='btn btn-default btn-block'
                     value='Register'
