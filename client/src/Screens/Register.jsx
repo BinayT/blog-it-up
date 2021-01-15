@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import axios from 'axios';
 
+import { userRegister } from '../redux/actions/authActions';
 import BgImage from '../components/BgImage';
 import Helmet from '../components/Helmet';
 
@@ -16,22 +16,7 @@ const Register = () => {
     e.preventDefault();
 
     const data = { name, email, password };
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    };
-
-    dispatch({ type: 'SET_LOADER' });
-
-    try {
-      const response = await axios.post('/register', data, config);
-      console.log(response);
-      dispatch({ type: 'CLOSE_LOADER' });
-    } catch (error) {
-      dispatch({ type: 'ERROR_LOADER', payload: error.response.data.errors });
-      console.log(error.response.data.errors);
-    }
+    dispatch(userRegister(data));
 
     setName('');
     setEmail('');
