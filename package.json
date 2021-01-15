@@ -5,11 +5,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "server": "nodemon index.js",
+    "start": "node server/index",
+    "server": "nodemon server/index",
     "client": "npm start --prefix client",
-    "clientInstall": "npm install --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "clientInstall": "npm install --prefix client"
   },
   "author": "",
   "license": "ISC",
