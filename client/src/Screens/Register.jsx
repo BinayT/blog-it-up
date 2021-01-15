@@ -27,6 +27,7 @@ const Register = () => {
                 <div className='group'>
                   <input
                     type='text'
+                    name='name'
                     className='group__control'
                     placeholder='Enter your name'
                     onChange={(e) => setName(e.target.value)}
@@ -37,6 +38,7 @@ const Register = () => {
                 <div className='group'>
                   <input
                     type='email'
+                    name='email'
                     className='group__control'
                     placeholder='Enter your email'
                     onChange={(e) => setEmail(e.target.value)}
@@ -47,6 +49,7 @@ const Register = () => {
                 <div className='group'>
                   <input
                     type='password'
+                    name='password'
                     className='group__control'
                     placeholder='Enter your password'
                     onChange={(e) => setPassword(e.target.value)}
