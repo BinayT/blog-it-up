@@ -5,7 +5,16 @@ const initialState = {
 };
 
 const AuthReducer = (state = initialState, action) => {
-  return state;
+  switch (action.type) {
+    case 'SET_LOADER':
+      return { ...state, loading: true };
+    case 'CLOSE_LOADER':
+      return { ...state, loading: false };
+    case 'ERROR_LOADER':
+      return { ...state, loading: false, registerErrors: action.payload };
+    default:
+      return state;
+  }
 };
 
 export default AuthReducer;

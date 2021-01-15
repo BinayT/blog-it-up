@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BgImage = () => {
+const BgImage = ({ image }) => {
   return <div className='bgImage'></div>;
 };
 

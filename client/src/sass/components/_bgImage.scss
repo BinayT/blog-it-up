@@ -3,6 +3,7 @@
   width: 100%;
   height: $underNavbar;
   background-size: cover;
+  margin-bottom: 10px;
 
   @include responsive(mobile) {
     display: none;

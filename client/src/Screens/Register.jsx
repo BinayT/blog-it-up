@@ -10,21 +10,19 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const dispatch = useDispatch();
+
   const formSubmitHandler = async (e) => {
     e.preventDefault();
 
+    const data = { name, email, password };
     const config = {
       headers: {
         'Content-Type': 'application/json',
       },
     };
-    try {
-    } catch (error) {}
-    const response = await axios.post(
-      '/register',
-      { name, email, password },
-      config
-    );
+
+    dispatch({ type: 'SET_LOADER' });
 
     setName('');
     setEmail('');
