@@ -29,8 +29,8 @@ const Register = () => {
       console.log(response);
       dispatch({ type: 'CLOSE_LOADER' });
     } catch (error) {
-      dispatch({ type: 'ERROR_LOADER' });
-      console.log(error.response);
+      dispatch({ type: 'ERROR_LOADER', payload: error.response.data.errors });
+      console.log(error.response.data.errors);
     }
 
     setName('');
@@ -89,7 +89,6 @@ const Register = () => {
 
                 <div className='group'>
                   <input
-                    disabled={name.length <= 3 || password.length <= 4}
                     type='submit'
                     className='btn btn-default btn-block'
                     value='Register'
