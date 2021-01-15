@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import axios from 'axios';
 
 import BgImage from '../components/BgImage';
 import Helmet from '../components/Helmet';
@@ -10,7 +12,9 @@ const Register = () => {
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
-    alert(`name: ${name}\nemail: ${email}\npassword: ${password}`);
+
+    axios.post('/register');
+
     setName('');
     setEmail('');
     setPassword('');
