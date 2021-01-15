@@ -1,7 +1,13 @@
+import { useState } from 'react';
+
 import BgImage from '../components/BgImage';
 import Helmet from '../components/Helmet';
 
 const Register = () => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   return (
     <>
       <Helmet title='Blog It Up | Registration Form' />
@@ -9,6 +15,7 @@ const Register = () => {
         <div className='col-8'>
           <BgImage />
         </div>
+
         <div className='col-4'>
           <div className='account'>
             <div className='account__section'>
@@ -16,27 +23,37 @@ const Register = () => {
                 <div className='group'>
                   <h3 className='form-heading'>Register</h3>
                 </div>
+
                 <div className='group'>
                   <input
                     type='text'
                     className='group__control'
                     placeholder='Enter your name'
+                    onChange={(e) => setName(e.target.value)}
+                    value={name}
                   />
                 </div>
+
                 <div className='group'>
                   <input
                     type='email'
                     className='group__control'
                     placeholder='Enter your email'
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
                   />
                 </div>
+
                 <div className='group'>
                   <input
                     type='password'
                     className='group__control'
                     placeholder='Enter your password'
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
                   />
                 </div>
+
                 <div className='group'>
                   <input
                     type='submit'
