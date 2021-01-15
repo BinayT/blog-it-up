@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import toast, { Toaster } from 'react-hot-toast';
 
 import { userRegister } from '../redux/actions/authActions';
 import BgImage from '../components/BgImage';
@@ -24,14 +25,19 @@ const Register = () => {
     setPassword('');
   };
 
+  useEffect(() => {
+    registerErrors.length > 0 &&
+      registerErrors.map((el) => toast.error(el.msg));
+  }, [registerErrors]);
+
   return (
     <>
+      <Toaster />
       <Helmet title='Blog It Up | Registration Form' />
       <div className='row mt-80'>
         <div className='col-8'>
           <BgImage />
         </div>
-
         <div className='col-4'>
           <div className='account'>
             <div className='account__section'>

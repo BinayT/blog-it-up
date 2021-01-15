@@ -1,10 +1,10 @@
 import { body, validationResult } from 'express-validator';
 
 const registrationValidations = [
-  body('name').not().isEmpty().withMessage("Name can't be black"),
+  body('name').not().isEmpty().withMessage("Name can't be blank"),
   body('name')
     .isLength({ min: 3 })
-    .withMessage('Name must be at least of 3 characters'),
+    .withMessage('Name must be of at least of 3 characters'),
   body('email').isEmail().trim().withMessage('Valid email address is required'),
   body('password')
     .isLength({ min: 4 })
