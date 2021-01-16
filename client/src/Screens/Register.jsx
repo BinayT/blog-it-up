@@ -20,20 +20,19 @@ const Register = ({ history }) => {
     e.preventDefault();
     const data = { name, email, password };
     dispatch(userRegister(data));
-    user && history.push('/');
     setName('');
     setEmail('');
     setPassword('');
   };
 
   useEffect(() => {
+    user && history.push('/');
     registerErrors.length > 0 &&
       registerErrors.map((el) => toast.error(el.msg));
-  }, [registerErrors]);
+  }, [registerErrors, user, history]);
 
   return (
     <>
-      !user ? (
       <Toaster toastOptions={{ style: { fontSize: '14px' } }} />
       <Helmet title='Blog It Up | Registration Form' />
       <div className='row mt-80'>
@@ -93,7 +92,6 @@ const Register = ({ history }) => {
           </div>
         </div>
       </div>
-      ) :{history.push('/')}
     </>
   );
 };
