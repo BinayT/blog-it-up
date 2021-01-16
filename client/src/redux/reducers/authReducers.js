@@ -11,16 +11,21 @@ const initialState = {
   registerErrors: [],
   loginErrors: [],
   token: '',
-  user: '',
+  user: null,
 };
 
 const token = localStorage.getItem('jwtToken');
 if (token) {
   const decodedToken = jwtDecode(localStorage.getItem('jwtToken'));
   const expiresIn = new Date(decodedToken.exp * 1000);
+
   if (new Date() > expiresIn) {
     localStorage.removeItem('jwtToken');
   } else {
+    initialState.token = token;
+
+    const { user } = decodedToken;
+    initialState.user = user;
   }
 }
 
