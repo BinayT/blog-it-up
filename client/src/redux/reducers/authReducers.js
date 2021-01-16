@@ -1,3 +1,5 @@
+import jwtDecode from 'jwt-decode';
+
 import {
   REGISTRATION_REQUEST,
   REGISTRATION_SUCCESS,
@@ -9,6 +11,8 @@ const initialState = {
   registerErrors: [],
   loginErrors: [],
 };
+
+const token = localStorage.getItem('jwtToken');
 
 const AuthReducer = (state = initialState, action) => {
   switch (action.type) {
