@@ -4,6 +4,7 @@ import {
   REGISTRATION_REQUEST,
   REGISTRATION_SUCCESS,
   REGISTRATION_ERROR,
+  SET_TOKEN,
 } from '../constants/authConstants';
 
 const initialState = {
@@ -14,19 +15,21 @@ const initialState = {
   user: null,
 };
 
-const token = localStorage.getItem('jwtToken');
-if (token) {
-  const decodedToken = jwtDecode(localStorage.getItem('jwtToken'));
+const verifyToken = (token) => {
+  const decodedToken = jwtDecode(token);
   const expiresIn = new Date(decodedToken.exp * 1000);
 
   if (new Date() > expiresIn) {
     localStorage.removeItem('jwtToken');
   } else {
-    initialState.token = token;
-
-    const { user } = decodedToken;
-    initialState.user = user;
+    return decodedToken;
   }
+};
+
+const token = localStorage.getItem('jwtToken');
+
+if (token) {
+  verifyToken(token);
 }
 
 const AuthReducer = (state = initialState, action) => {
