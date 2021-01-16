@@ -26,7 +26,7 @@ const Register = ({ history }) => {
   };
 
   useEffect(() => {
-    user && history.push('/');
+    user && history.push('/dashboard');
     registerErrors.length > 0 &&
       registerErrors.map((el) => toast.error(el.msg));
   }, [registerErrors, user, history]);
