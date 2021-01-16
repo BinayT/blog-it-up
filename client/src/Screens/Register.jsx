@@ -6,7 +6,7 @@ import { userRegister } from '../redux/actions/authActions';
 import BgImage from '../components/BgImage';
 import Helmet from '../components/Helmet';
 
-const Register = () => {
+const Register = ({ history }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -14,12 +14,13 @@ const Register = () => {
   const dispatch = useDispatch();
 
   const auth = useSelector((state) => state.auth);
-  const { loading, registerErrors } = auth;
+  const { loading, registerErrors, user } = auth;
 
   const formSubmitHandler = async (e) => {
     e.preventDefault();
     const data = { name, email, password };
     dispatch(userRegister(data));
+    user && history.push('/');
     setName('');
     setEmail('');
     setPassword('');
@@ -32,6 +33,7 @@ const Register = () => {
 
   return (
     <>
+      !user ? (
       <Toaster toastOptions={{ style: { fontSize: '14px' } }} />
       <Helmet title='Blog It Up | Registration Form' />
       <div className='row mt-80'>
@@ -91,6 +93,7 @@ const Register = () => {
           </div>
         </div>
       </div>
+      ) :{history.push('/')}
     </>
   );
 };
