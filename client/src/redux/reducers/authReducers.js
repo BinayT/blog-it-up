@@ -10,9 +10,19 @@ const initialState = {
   loading: false,
   registerErrors: [],
   loginErrors: [],
+  token: '',
+  user: '',
 };
 
 const token = localStorage.getItem('jwtToken');
+if (token) {
+  const decodedToken = jwtDecode(localStorage.getItem('jwtToken'));
+  const expiresIn = new Date(decodedToken.exp * 1000);
+  if (new Date() > expiresIn) {
+    localStorage.removeItem('jwtToken');
+  } else {
+  }
+}
 
 const AuthReducer = (state = initialState, action) => {
   switch (action.type) {
