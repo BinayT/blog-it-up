@@ -6,7 +6,7 @@ import { userRegister } from '../redux/actions/authActions';
 import BgImage from '../components/BgImage';
 import Helmet from '../components/Helmet';
 
-const Register = ({ history }) => {
+const Register = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -14,7 +14,7 @@ const Register = ({ history }) => {
   const dispatch = useDispatch();
 
   const auth = useSelector((state) => state.auth);
-  const { loading, registerErrors, user } = auth;
+  const { loading, registerErrors } = auth;
 
   const formSubmitHandler = async (e) => {
     e.preventDefault();
@@ -26,10 +26,9 @@ const Register = ({ history }) => {
   };
 
   useEffect(() => {
-    user && history.push('/dashboard');
     registerErrors.length > 0 &&
       registerErrors.map((el) => toast.error(el.msg));
-  }, [registerErrors, user, history]);
+  }, [registerErrors]);
 
   return (
     <>
