@@ -20,6 +20,10 @@ const CreatePost = () => {
                     placeholder='Post a title...'
                   />
                 </div>
+                <div className='group'>
+                  <label htmlFor='image'>Image Upload</label>
+                  <input type='file' name='picture' id='image' />
+                </div>
               </form>
             </div>
           </div>
