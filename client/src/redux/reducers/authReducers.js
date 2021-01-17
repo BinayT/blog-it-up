@@ -5,6 +5,7 @@ import {
   REGISTRATION_SUCCESS,
   REGISTRATION_ERROR,
   SET_TOKEN,
+  LOGOUT,
 } from '../constants/authConstants';
 
 const initialState = {
@@ -46,6 +47,8 @@ const AuthReducer = (state = initialState, action) => {
       const decoded = verifyToken(action.payload);
       const { user } = decoded;
       return { ...state, token: action.payload, user };
+    case LOGOUT:
+      return { ...state, token: '', user: null };
     default:
       return state;
   }
