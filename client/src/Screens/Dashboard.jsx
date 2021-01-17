@@ -8,8 +8,8 @@ const Dashboard = ({ history }) => {
   const auth = useSelector((state) => state.auth);
 
   useEffect(() => {
-    !auth.user ? history.push('/login') : setName(auth.user.name);
-  }, [auth, history]);
+    setName(auth.user.name);
+  }, [auth]);
 
   return (
     <div className='dashboard'>
