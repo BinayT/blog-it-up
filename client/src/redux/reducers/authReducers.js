@@ -4,6 +4,9 @@ import {
   REGISTRATION_REQUEST,
   REGISTRATION_SUCCESS,
   REGISTRATION_ERROR,
+  LOGIN_REQUEST,
+  LOGIN_SUCCESS,
+  LOGIN_ERROR,
   SET_TOKEN,
   LOGOUT,
 } from '../constants/authConstants';
@@ -54,4 +57,21 @@ const AuthReducer = (state = initialState, action) => {
   }
 };
 
-export default AuthReducer;
+const loginReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case LOGIN_REQUEST:
+      return { ...state, loading: true };
+    case LOGIN_SUCCESS:
+      return { ...state, loading: false };
+    case LOGIN_ERROR:
+      return { ...state, loading: false, loginErrors: action.payload };
+    case SET_TOKEN:
+      const decoded = verifyToken(action.payload);
+      const { user } = decoded;
+      return { ...state, token: action.payload, user };
+    default:
+      return state;
+  }
+};
+
+export { AuthReducer, loginReducer };
