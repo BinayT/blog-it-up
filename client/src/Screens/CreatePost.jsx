@@ -2,10 +2,11 @@ import { useState } from 'react';
 import Helmet from '../components/Helmet';
 
 const CreatePost = () => {
-  const [fileName, setFileName] = useState('');
+  const [imageName, setImageName] = useState('Image Upload ⏏️');
 
   const fileHandler = (e) => {
-    console.log(e.target.files);
+    const name = e.target.files[0].name;
+    setImageName(`You uploaded - ${name}`);
   };
 
   return (
@@ -29,7 +30,7 @@ const CreatePost = () => {
                 </div>
                 <div className='group'>
                   <label htmlFor='image' className='image__label'>
-                    Image Upload ⏏️
+                    {imageName}
                   </label>
                   <input
                     type='file'
