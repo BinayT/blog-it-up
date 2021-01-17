@@ -1,9 +1,9 @@
-@import 'sass/base/reset';
-
 // importing scss of abstracts file
 @import 'sass/abstracts/variables';
 @import 'sass/abstracts/mixin';
 @import 'sass/abstracts/extends';
+
+@import 'sass/base/reset';
 
 // importing scss components file
 @import 'sass/utils/utils';
