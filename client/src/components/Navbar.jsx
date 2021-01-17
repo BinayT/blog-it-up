@@ -28,7 +28,7 @@ const Navbar = () => {
                 <Link to='/dashboard'>Create Post</Link>
               </li>
               <li>
-                <span>Hi, {user.name}</span>
+                <Link to='/dashboard'>Hi, {user.name}</Link>
               </li>
               <li>
                 <span onClick={logout}>Logout</span>
