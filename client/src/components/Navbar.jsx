@@ -25,7 +25,7 @@ const Navbar = () => {
           {user ? (
             <div className='navbar__right'>
               <li>
-                <Link to='/dashboard'>Create Post</Link>
+                <Link to='/create'>Create Post</Link>
               </li>
               <li>
                 <Link to='/dashboard'>Hi, {user.name}</Link>

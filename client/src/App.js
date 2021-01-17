@@ -4,6 +4,7 @@ import Home from './Screens/Home';
 import Register from './Screens/Register';
 import Login from './Screens/Login';
 import DashBoard from './Screens/Dashboard';
+import CreatePost from './Screens/CreatePost';
 import NotFound from './Screens/NotFound';
 import Navbar from './components/Navbar';
 import PrivateRoute from './private/PrivateRoute';
@@ -19,6 +20,7 @@ function App() {
         <RouteLink path='/register' component={Register} />
         <RouteLink path='/login' component={Login} />
         <PrivateRoute path='/dashboard' component={DashBoard} />
+        <PrivateRoute path='/create' component={CreatePost} />
         <Route component={NotFound} />
       </Switch>
     </>
