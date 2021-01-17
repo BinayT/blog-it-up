@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+
 import Helmet from '../components/Helmet';
 
 const CreatePost = () => {
@@ -8,6 +11,8 @@ const CreatePost = () => {
     const name = e.target.files[0].name;
     setImageName(`You uploaded - ${name}`);
   };
+
+  const [value, setValue] = useState('');
 
   return (
     <div className='createPost mt-100'>
@@ -38,6 +43,15 @@ const CreatePost = () => {
                     id='image'
                     onChange={fileHandler}
                   />
+                </div>
+                <div className='group'>
+                  <label htmlFor='body'>
+                    <ReactQuill
+                      theme='snow'
+                      value={value}
+                      onChange={setValue}
+                    />
+                  </label>
                 </div>
               </form>
             </div>
