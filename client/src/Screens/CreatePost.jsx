@@ -1,6 +1,13 @@
+import { useState } from 'react';
 import Helmet from '../components/Helmet';
 
 const CreatePost = () => {
+  const [fileName, setFileName] = useState('');
+
+  const fileHandler = (e) => {
+    console.log(e.target.files);
+  };
+
   return (
     <div className='createPost mt-100'>
       <Helmet title='Create A Post | Blog It Up' />
@@ -24,7 +31,12 @@ const CreatePost = () => {
                   <label htmlFor='image' className='image__label'>
                     Image Upload ⏏️
                   </label>
-                  <input type='file' name='picture' id='image' />
+                  <input
+                    type='file'
+                    name='picture'
+                    id='image'
+                    onChange={fileHandler}
+                  />
                 </div>
               </form>
             </div>
