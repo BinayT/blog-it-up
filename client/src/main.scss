@@ -3,6 +3,7 @@
 // importing scss of abstracts file
 @import 'sass/abstracts/variables';
 @import 'sass/abstracts/mixin';
+@import 'sass/abstracts/extends';
 
 // importing scss components file
 @import 'sass/utils/utils';
@@ -11,6 +12,7 @@
 @import 'sass/components/navbar';
 @import 'sass/components/bgImage';
 @import 'sass/components/account';
+@import 'sass/components/notFound';
 
 // importing scss layout file
 @import 'sass/layout/grid';
