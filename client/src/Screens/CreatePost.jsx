@@ -8,7 +8,19 @@ const CreatePost = () => {
         <div className='row'>
           <div className='col-6'>
             <div className='card'>
-              <h3>Create a new post</h3>
+              <h3 className='card__h3'>Create a new post</h3>
+              <form>
+                <div className='group'>
+                  <label htmlFor='title'>Post Title</label>
+                  <input
+                    type='text'
+                    name='title'
+                    id='title'
+                    className='group__control'
+                    placeholder='Post a title...'
+                  />
+                </div>
+              </form>
             </div>
           </div>
         </div>
