@@ -1,13 +1,17 @@
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
+import { LOGOUT } from '../redux/constants/authConstants';
+
 const Navbar = () => {
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   const logout = () => {
     localStorage.removeItem('jwtToken');
+    dispatch({ type: LOGOUT });
   };
+
   return (
     <nav className='navbar'>
       <div className='container'>
