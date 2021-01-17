@@ -53,6 +53,13 @@ const CreatePost = () => {
                     />
                   </label>
                 </div>
+                <div className='group'>
+                  <input
+                    type='submit'
+                    className='btn btn-default btn-block'
+                    value='Create Post'
+                  />
+                </div>
               </form>
             </div>
           </div>
