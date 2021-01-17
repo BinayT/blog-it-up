@@ -29,7 +29,9 @@ const verifyToken = (token) => {
 const token = localStorage.getItem('jwtToken');
 
 if (token) {
-  verifyToken(token);
+  const { user } = verifyToken(token);
+  initialState.user = user;
+  initialState.token = token;
 }
 
 const AuthReducer = (state = initialState, action) => {
@@ -40,6 +42,10 @@ const AuthReducer = (state = initialState, action) => {
       return { ...state, loading: false };
     case REGISTRATION_ERROR:
       return { ...state, loading: false, registerErrors: action.payload };
+    case SET_TOKEN:
+      const decoded = verifyToken(action.payload);
+      const { user } = decoded;
+      return { ...state, token: action.payload, user };
     default:
       return state;
   }
