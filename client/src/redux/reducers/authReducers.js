@@ -74,4 +74,4 @@ const loginReducer = (state = initialState, action) => {
   }
 };
 
-export { AuthReducer, loginReducer };
+export { authReducer, loginReducer };
