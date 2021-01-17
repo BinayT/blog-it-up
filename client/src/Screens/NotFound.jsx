@@ -4,7 +4,7 @@ const NotFound = () => {
   return (
     <div className='notFound dashboard'>
       <Helmet
-        title={`Blog It Up |  Not Found`}
+        title={`404 Not Found`}
         content='The page searched in Blog It Up website is not found.'
       />
       <div className='notFound__container'>
