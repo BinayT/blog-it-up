@@ -6,6 +6,7 @@ import Login from './Screens/Login';
 import DashBoard from './Screens/Dashboard';
 import Navbar from './components/Navbar';
 import PrivateRoute from './private/PrivateRoute';
+import RouteLink from './private/RouteLinks';
 import './main.scss';
 
 function App() {
@@ -14,8 +15,8 @@ function App() {
       <Navbar />
       <Switch>
         <Route path='/' exact component={Home} />
-        <Route path='/register' component={Register} />
-        <Route path='/login' component={Login} />
+        <RouteLink path='/register' component={Register} />
+        <RouteLink path='/login' component={Login} />
         <PrivateRoute path='/dashboard' component={DashBoard} />
       </Switch>
     </>
