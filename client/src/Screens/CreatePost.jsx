@@ -6,13 +6,18 @@ import Helmet from '../components/Helmet';
 
 const CreatePost = () => {
   const [imageName, setImageName] = useState('Image Upload ⏏️');
+  const [title, setTitle] = useState('');
+  const [value, setValue] = useState('');
 
   const fileHandler = (e) => {
     const name = e.target.files[0].name;
     setImageName(`You uploaded - ${name}`);
   };
 
-  const [value, setValue] = useState('');
+  const submitPostHandler = (e) => {
+    e.preventDefault();
+    alert(`title: ${title}\nimageName: ${imageName}\nvalue: ${value}\n`);
+  };
 
   return (
     <div className='createPost mt-100'>
@@ -22,13 +27,15 @@ const CreatePost = () => {
           <div className='col-6'>
             <div className='card'>
               <h3 className='card__h3'>Create a new post</h3>
-              <form>
+              <form onSubmit={submitPostHandler}>
                 <div className='group'>
                   <label htmlFor='title'>Post Title</label>
                   <input
                     type='text'
                     name='title'
                     id='title'
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
                     className='group__control'
                     placeholder='Post a title...'
                   />
