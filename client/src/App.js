@@ -4,6 +4,7 @@ import Home from './Screens/Home';
 import Register from './Screens/Register';
 import Login from './Screens/Login';
 import DashBoard from './Screens/Dashboard';
+import NoutFound from './Screens/NoutFound';
 import Navbar from './components/Navbar';
 import PrivateRoute from './private/PrivateRoute';
 import RouteLink from './private/RouteLinks';
