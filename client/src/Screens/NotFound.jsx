@@ -2,7 +2,7 @@ import Helmet from '../components/Helmet';
 
 const NotFound = () => {
   return (
-    <div className='notFound'>
+    <div className='notFound dashboard'>
       <Helmet
         title={`Blog It Up |  Not Found`}
         content='The page searched in Blog It Up website is not found.'

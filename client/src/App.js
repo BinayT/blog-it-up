@@ -4,7 +4,7 @@ import Home from './Screens/Home';
 import Register from './Screens/Register';
 import Login from './Screens/Login';
 import DashBoard from './Screens/Dashboard';
-import NoutFound from './Screens/NoutFound';
+import NotFound from './Screens/NotFound';
 import Navbar from './components/Navbar';
 import PrivateRoute from './private/PrivateRoute';
 import RouteLink from './private/RouteLinks';
@@ -19,6 +19,7 @@ function App() {
         <RouteLink path='/register' component={Register} />
         <RouteLink path='/login' component={Login} />
         <PrivateRoute path='/dashboard' component={DashBoard} />
+        <Route component={NotFound} />
       </Switch>
     </>
   );
