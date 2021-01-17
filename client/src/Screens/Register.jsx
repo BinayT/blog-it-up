@@ -53,7 +53,7 @@ const Register = () => {
                     className='group__control'
                     placeholder='Enter your name'
                     onChange={(e) => setName(e.target.value)}
-                    maxLength='12'
+                    maxLength='10'
                     value={name}
                   />
                 </div>

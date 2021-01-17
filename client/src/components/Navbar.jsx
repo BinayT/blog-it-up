@@ -1,9 +1,13 @@
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 const Navbar = () => {
   const { user } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
 
+  const logout = () => {
+    localStorage.removeItem('jwtToken');
+  };
   return (
     <nav className='navbar'>
       <div className='container'>
@@ -13,13 +17,17 @@ const Navbar = () => {
               <img src='/images/navbar-logo.png' alt='' />
             </Link>
           </div>
+
           {user ? (
             <div className='navbar__right'>
               <li>
-                <Link to='/dashboard'>Hi, {user.name}</Link>
+                <Link to='/dashboard'>Create Post</Link>
               </li>
               <li>
-                <Link to='/logout'>Logout</Link>
+                <span>Hi, {user.name}</span>
+              </li>
+              <li>
+                <span onClick={logout}>Logout</span>
               </li>
             </div>
           ) : (
