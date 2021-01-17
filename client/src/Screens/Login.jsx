@@ -27,7 +27,7 @@ const Login = () => {
   return (
     <>
       <Toaster toastOptions={{ style: { fontSize: '14px' } }} />
-      <Helmet title='Blog It Up | Login Form' />
+      <Helmet title='Login Form | Blog It Up' />
       <div className='row mt-80'>
         <div className='col-8'>
           <BgImage />
