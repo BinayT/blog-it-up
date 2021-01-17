@@ -10,6 +10,8 @@ import {
   SET_TOKEN,
 } from '../constants/authConstants';
 
+////////////////////////////////////////// USER REGISTER //////////////////////////////////////////
+
 const userRegister = (info) => async (dispatch) => {
   const config = {
     headers: {
@@ -33,6 +35,9 @@ const userRegister = (info) => async (dispatch) => {
   }
 };
 
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////// USER LOGIN //////////////////////////////////////////
 const loginUser = (info) => async (dispatch) => {
   const config = {
     headers: {
@@ -54,5 +59,7 @@ const loginUser = (info) => async (dispatch) => {
     console.log(error.response.data.errors);
   }
 };
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
 
 export { userRegister, loginUser };

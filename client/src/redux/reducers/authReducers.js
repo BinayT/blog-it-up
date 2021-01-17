@@ -38,7 +38,7 @@ if (token) {
   initialState.token = token;
 }
 
-const AuthReducer = (state = initialState, action) => {
+const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case REGISTRATION_REQUEST:
       return { ...state, loading: true };
