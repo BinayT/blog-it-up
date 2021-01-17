@@ -21,7 +21,9 @@ const CreatePost = () => {
                   />
                 </div>
                 <div className='group'>
-                  <label htmlFor='image'>Image Upload</label>
+                  <label htmlFor='image' className='image__label'>
+                    Image Upload ⏏️
+                  </label>
                   <input type='file' name='picture' id='image' />
                 </div>
               </form>
