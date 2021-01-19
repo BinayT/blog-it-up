@@ -18,7 +18,7 @@ const CreatePost = () => {
     reader.onloadend = () => {
       setImagePreview(reader.result);
     };
-    reader.readAsDataURL(name);
+    reader.readAsDataURL(e.target.files[0]);
   };
 
   const slugAndTitle = (e) => {
@@ -96,7 +96,15 @@ const CreatePost = () => {
                     placeholder='Post URL...'
                   />
                 </div>
-                <div className='group'></div>
+                <div className='group'>
+                  <div className='imagePreview'>
+                    {imagePreview ? (
+                      <img src={imagePreview} alt={imageName} />
+                    ) : (
+                      ''
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
