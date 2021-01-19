@@ -69,6 +69,20 @@ const CreatePost = () => {
                 </div>
               </div>
             </div>
+            <div className='col-6'>
+              <div className='card'>
+                <div className='group'>
+                  <label htmlFor='slug'>Post's URL...</label>
+                  <input
+                    type='text'
+                    name='slug'
+                    id='slug'
+                    className='group__control'
+                    placeholder='Post URL...'
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </form>
       </div>
