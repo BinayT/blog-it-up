@@ -52,13 +52,8 @@ const CreatePost = () => {
                   />
                 </div>
                 <div className='group'>
-                  <label htmlFor='body'>
-                    <ReactQuill
-                      theme='snow'
-                      value={value}
-                      onChange={setValue}
-                    />
-                  </label>
+                  <label htmlFor='body'>Post Body</label>
+                  <ReactQuill theme='snow' value={value} onChange={setValue} />
                 </div>
                 <div className='group'>
                   <input
