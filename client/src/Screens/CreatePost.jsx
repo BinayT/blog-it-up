@@ -9,6 +9,7 @@ const CreatePost = () => {
   const [title, setTitle] = useState('');
   const [value, setValue] = useState('');
   const [slug, setSlug] = useState('');
+  const [slugButton, setSlugButton] = useState(false);
 
   const fileHandler = (e) => {
     const name = e.target.files[0].name;
@@ -18,14 +19,17 @@ const CreatePost = () => {
   const slugAndTitle = (e) => {
     setTitle(e.target.value);
     setSlug(title.trim().split(' ').join('-'));
+    title.length > 1 ? setSlugButton(true) : setSlugButton(false);
   };
 
   const submitPostHandler = (e) => {
     e.preventDefault();
-    alert(`title: ${title}\nimageName: ${imageName}\nvalue: ${value}\n`);
+    alert(
+      `title: ${title}\nimageName: ${imageName}\nvalue: ${value}\nslug: ${slug}`
+    );
   };
 
-  console.log(title.trim().split(' ').join('-'));
+  const slugHandler = () => {};
 
   return (
     <div className='createPost mt-100'>
@@ -86,9 +90,19 @@ const CreatePost = () => {
                     name='slug'
                     id='slug'
                     value={slug}
+                    onChange={slugHandler}
                     className='group__control'
                     placeholder='Post URL...'
                   />
+                </div>
+                <div className='group'>
+                  {slugButton ? (
+                    <button className='btn btn-default' onClick={slugUpdate}>
+                      Update Slug
+                    </button>
+                  ) : (
+                    ''
+                  )}
                 </div>
               </div>
             </div>
