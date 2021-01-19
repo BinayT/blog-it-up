@@ -92,6 +92,7 @@ const CreatePost = () => {
                     name='slug'
                     id='slug'
                     value={slug}
+                    disabled
                     className='group__control'
                     placeholder='Post URL...'
                   />
