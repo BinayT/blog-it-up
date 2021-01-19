@@ -8,16 +8,24 @@ const CreatePost = () => {
   const [imageName, setImageName] = useState('Image Upload ⏏️');
   const [title, setTitle] = useState('');
   const [value, setValue] = useState('');
+  const [slug, setSlug] = useState('');
 
   const fileHandler = (e) => {
     const name = e.target.files[0].name;
     setImageName(`You uploaded - ${name}`);
   };
 
+  const slugAndTitle = (e) => {
+    setTitle(e.target.value);
+    setSlug(title.trim().split(' ').join('-'));
+  };
+
   const submitPostHandler = (e) => {
     e.preventDefault();
     alert(`title: ${title}\nimageName: ${imageName}\nvalue: ${value}\n`);
   };
+
+  console.log(title.trim().split(' ').join('-'));
 
   return (
     <div className='createPost mt-100'>
@@ -35,7 +43,7 @@ const CreatePost = () => {
                     name='title'
                     id='title'
                     value={title}
-                    onChange={(e) => setTitle(e.target.value)}
+                    onChange={(e) => slugAndTitle(e)}
                     className='group__control'
                     placeholder='Post a title...'
                   />
@@ -77,6 +85,7 @@ const CreatePost = () => {
                     type='text'
                     name='slug'
                     id='slug'
+                    value={slug}
                     className='group__control'
                     placeholder='Post URL...'
                   />
