@@ -23,11 +23,11 @@ const CreatePost = () => {
     <div className='createPost mt-100'>
       <Helmet title='Create A Post | Blog It Up' />
       <div className='container'>
-        <div className='row'>
-          <div className='col-6'>
-            <div className='card'>
-              <h3 className='card__h3'>Create a new post</h3>
-              <form onSubmit={submitPostHandler}>
+        <form onSubmit={submitPostHandler}>
+          <div className='row'>
+            <div className='col-6'>
+              <div className='card'>
+                <h3 className='card__h3'>Create a new post</h3>
                 <div className='group'>
                   <label htmlFor='title'>Post Title</label>
                   <input
@@ -53,7 +53,12 @@ const CreatePost = () => {
                 </div>
                 <div className='group'>
                   <label htmlFor='body'>Post Body</label>
-                  <ReactQuill theme='snow' value={value} onChange={setValue} />
+                  <ReactQuill
+                    theme='snow'
+                    value={value}
+                    onChange={setValue}
+                    id='body'
+                  />
                 </div>
                 <div className='group'>
                   <input
@@ -62,10 +67,10 @@ const CreatePost = () => {
                     value='Create Post'
                   />
                 </div>
-              </form>
+              </div>
             </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );
