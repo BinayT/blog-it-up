@@ -24,8 +24,8 @@ const CreatePost = () => {
       <Helmet title='Create A Post | Blog It Up' />
       <div className='container'>
         <form onSubmit={submitPostHandler}>
-          <div className='row'>
-            <div className='col-6'>
+          <div className='row mr-minus-15 ml-minus-15'>
+            <div className='col-6 p-15'>
               <div className='card'>
                 <h3 className='card__h3'>Create a new post</h3>
                 <div className='group'>
@@ -69,7 +69,7 @@ const CreatePost = () => {
                 </div>
               </div>
             </div>
-            <div className='col-6'>
+            <div className='col-6 p-15'>
               <div className='card'>
                 <div className='group'>
                   <label htmlFor='slug'>Post's URL...</label>
