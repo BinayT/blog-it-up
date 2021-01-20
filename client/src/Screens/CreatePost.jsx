@@ -8,6 +8,7 @@ const CreatePost = () => {
   const [imageName, setImageName] = useState('Image Upload ⏏️');
   const [title, setTitle] = useState('');
   const [imagePreview, setImagePreview] = useState('');
+  const [image, setImage] = useState('');
   const [value, setValue] = useState('');
   const [description, setDescription] = useState('');
   const [slug, setSlug] = useState('');
@@ -15,11 +16,13 @@ const CreatePost = () => {
   const fileHandler = (e) => {
     const name = e.target.files[0].name;
     setImageName(`You uploaded - ${name}`);
+    setImage(e.target.files[0]);
     const reader = new FileReader();
     reader.onloadend = () => {
       setImagePreview(reader.result);
     };
     reader.readAsDataURL(e.target.files[0]);
+    console.log(image.name);
   };
 
   const slugAndTitle = (e) => {
@@ -34,8 +37,6 @@ const CreatePost = () => {
       `title: ${title}\nimageName: ${imageName}\nvalue: ${value}\nslug: ${slug}`
     );
   };
-
-  console.log(description);
 
   return (
     <div className='createPost mt-100'>
