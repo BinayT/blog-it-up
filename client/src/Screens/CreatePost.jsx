@@ -112,14 +112,14 @@ const CreatePost = () => {
                     defaultValue={description}
                     onChange={(e) => setDescription(e.target.value)}
                     cols='20'
-                    rows='10'
+                    rows='4'
                     className='group__control'
                     placeholder='Describe what people can expect from this post here.'
                     maxLength='150'
                   ></textarea>
-                  <p>{description.length}/150</p>
+                  <p className='length'>{description.length}/150</p>
                 </div>
-                <div className='group'>
+                <div className='group' style={{ marginTop: '10px' }}>
                   <div className='imagePreview'>
                     <label htmlFor='imagePreview'>Image Preview</label>
                     {imagePreview ? (
