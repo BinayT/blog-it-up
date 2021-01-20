@@ -9,7 +9,7 @@ const CreatePost = () => {
   const [title, setTitle] = useState('');
   const [imagePreview, setImagePreview] = useState('');
   const [image, setImage] = useState('');
-  const [value, setValue] = useState('');
+  const [postBody, setPostBody] = useState('');
   const [description, setDescription] = useState('');
   const [slug, setSlug] = useState('');
 
@@ -22,7 +22,6 @@ const CreatePost = () => {
       setImagePreview(reader.result);
     };
     reader.readAsDataURL(e.target.files[0]);
-    console.log(image.name);
   };
 
   const slugAndTitle = (e) => {
@@ -34,7 +33,7 @@ const CreatePost = () => {
   const submitPostHandler = (e) => {
     e.preventDefault();
     alert(
-      `title: ${title}\nimageName: ${imageName}\nvalue: ${value}\nslug: ${slug}`
+      `title: ${title}\nimageName: ${imageName}\npostBody: ${postBody}\nslug: ${slug}\nimage: ${image}`
     );
   };
 
@@ -75,8 +74,8 @@ const CreatePost = () => {
                   <ReactQuill
                     theme='snow'
                     placeholder="Post's body"
-                    value={value}
-                    onChange={setValue}
+                    value={postBody}
+                    onChange={setPostBody}
                     id='body'
                   />
                 </div>
