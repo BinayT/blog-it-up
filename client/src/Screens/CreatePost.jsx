@@ -70,6 +70,7 @@ const CreatePost = () => {
                   <label htmlFor='body'>Post Body</label>
                   <ReactQuill
                     theme='snow'
+                    placeholder="Post's body"
                     value={value}
                     onChange={setValue}
                     id='body'
@@ -108,6 +109,18 @@ const CreatePost = () => {
                       ''
                     )}
                   </div>
+                </div>
+                <div className='groupp'>
+                  <label htmlFor='description'>Meta Desription</label>
+                  <textarea
+                    name=''
+                    id='description'
+                    cols='20'
+                    rows='10'
+                    className='group__control'
+                    placeholder='Describe what people can expect from this post here.'
+                    maxLength='150'
+                  ></textarea>
                 </div>
               </div>
             </div>
