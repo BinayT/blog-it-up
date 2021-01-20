@@ -35,6 +35,8 @@ const CreatePost = () => {
     );
   };
 
+  console.log(description);
+
   return (
     <div className='createPost mt-100'>
       <Helmet title='Create A Post | Blog It Up' />
@@ -107,19 +109,25 @@ const CreatePost = () => {
                   <textarea
                     name=''
                     id='description'
-                    defaultvalue={description}
-                    onChange={(e) => setDescription(e.target)}
+                    defaultValue={description}
+                    onChange={(e) => setDescription(e.target.value)}
                     cols='20'
                     rows='10'
                     className='group__control'
                     placeholder='Describe what people can expect from this post here.'
                     maxLength='150'
                   ></textarea>
+                  <p>{description.length}/150</p>
                 </div>
                 <div className='group'>
                   <div className='imagePreview'>
+                    <label htmlFor='imagePreview'>Image Preview</label>
                     {imagePreview ? (
-                      <img src={imagePreview} alt={imageName} />
+                      <img
+                        src={imagePreview}
+                        alt={imageName}
+                        id='imagePreview'
+                      />
                     ) : (
                       ''
                     )}
