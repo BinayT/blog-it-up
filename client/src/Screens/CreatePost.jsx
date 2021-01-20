@@ -102,15 +102,6 @@ const CreatePost = () => {
                     placeholder='Post URL...'
                   />
                 </div>
-                <div className='group'>
-                  <div className='imagePreview'>
-                    {imagePreview ? (
-                      <img src={imagePreview} alt={imageName} />
-                    ) : (
-                      ''
-                    )}
-                  </div>
-                </div>
                 <div className='groupp'>
                   <label htmlFor='description'>Meta Desription</label>
                   <textarea
@@ -124,6 +115,15 @@ const CreatePost = () => {
                     placeholder='Describe what people can expect from this post here.'
                     maxLength='150'
                   ></textarea>
+                </div>
+                <div className='group'>
+                  <div className='imagePreview'>
+                    {imagePreview ? (
+                      <img src={imagePreview} alt={imageName} />
+                    ) : (
+                      ''
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
