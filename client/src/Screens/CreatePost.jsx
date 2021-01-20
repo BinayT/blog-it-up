@@ -23,7 +23,8 @@ const CreatePost = () => {
 
   const slugAndTitle = (e) => {
     setTitle(e.target.value);
-    setSlug(title.trim().split(' ').join('-'));
+    const createSlug = e.target.value.trim().split(' ').join('-');
+    setSlug(createSlug);
   };
 
   const submitPostHandler = (e) => {
@@ -89,10 +90,9 @@ const CreatePost = () => {
                   <label htmlFor='slug'>Post's URL...</label>
                   <input
                     type='text'
-                    name='slug'
                     id='slug'
                     value={slug}
-                    disabled
+                    name='slug'
                     className='group__control'
                     placeholder='Post URL...'
                   />
