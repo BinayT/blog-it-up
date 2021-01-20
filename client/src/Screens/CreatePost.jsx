@@ -9,6 +9,7 @@ const CreatePost = () => {
   const [title, setTitle] = useState('');
   const [imagePreview, setImagePreview] = useState('');
   const [value, setValue] = useState('');
+  const [description, setDescription] = useState('');
   const [slug, setSlug] = useState('');
 
   const fileHandler = (e) => {
@@ -115,6 +116,8 @@ const CreatePost = () => {
                   <textarea
                     name=''
                     id='description'
+                    defaultvalue={description}
+                    onChange={(e) => setDescription(e.target)}
                     cols='20'
                     rows='10'
                     className='group__control'
