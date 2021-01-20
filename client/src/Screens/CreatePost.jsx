@@ -92,6 +92,8 @@ const CreatePost = () => {
                     type='text'
                     id='slug'
                     value={slug}
+                    onChange={(e) => setSlug(e.target.value)}
+                    onBlur={() => setSlug(slug.trim().split(' ').join('-'))}
                     name='slug'
                     className='group__control'
                     placeholder='Post URL...'
