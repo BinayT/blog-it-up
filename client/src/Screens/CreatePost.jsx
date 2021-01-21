@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useSelector, useDispatch } from 'react-redux';
+import toast, { Toaster } from 'react-hot-toast';
 
 import Helmet from '../components/Helmet';
 import { createPost } from '../redux/actions/postActions';
@@ -19,6 +20,8 @@ const CreatePost = () => {
   const {
     user: { name, _id },
   } = useSelector((state) => state.auth);
+
+  const { createErrors } = useSelector((state) => state.post);
 
   const fileHandler = (e) => {
     const name = e.target.files[0].name;
@@ -51,9 +54,14 @@ const CreatePost = () => {
     dispatch(createPost(formData));
   };
 
+  useEffect(() => {
+    createErrors.length > 0 && createErrors.map((el) => toast.error(el.msg));
+  }, [createErrors]);
+
   return (
     <div className='createPost mt-100'>
       <Helmet title='Create A Post | Blog It Up' />
+      <Toaster toastOptions={{ style: { fontSize: '14px' } }} />
       <div className='container'>
         <form onSubmit={submitPostHandler}>
           <div className='row mr-minus-15 ml-minus-15'>
