@@ -17,6 +17,7 @@ const CreatePost = () => {
     const name = e.target.files[0].name;
     setImageName(`You uploaded - ${name}`);
     setImage(e.target.files[0]);
+
     const reader = new FileReader();
     reader.onloadend = () => {
       setImagePreview(reader.result);
@@ -79,13 +80,6 @@ const CreatePost = () => {
                     id='body'
                   />
                 </div>
-                <div className='group'>
-                  <input
-                    type='submit'
-                    className='btn btn-default btn-block'
-                    value='Create Post'
-                  />
-                </div>
               </div>
             </div>
             <div className='col-6 p-15'>
@@ -131,6 +125,13 @@ const CreatePost = () => {
                     ) : (
                       ''
                     )}
+                    <div className='group'>
+                      <input
+                        type='submit'
+                        className='btn btn-default btn-block'
+                        value='Create Post'
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
