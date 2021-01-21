@@ -3,6 +3,8 @@ const initialState = {
   createErrors: [],
 };
 
-const postReducer = (state = initialState, action) => {};
+const postReducer = (state = initialState, action) => {
+  return state;
+};
 
-export default postReducer;
+export { postReducer };

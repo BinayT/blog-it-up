@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import { useSelector, useDispatch } from 'react-redux';
 
 import Helmet from '../components/Helmet';
+import { createPost } from '../redux/actions/postActions';
 
 const CreatePost = () => {
   const [imageName, setImageName] = useState('Image Upload ⏏️');
@@ -12,6 +14,10 @@ const CreatePost = () => {
   const [postBody, setPostBody] = useState('');
   const [description, setDescription] = useState('');
   const [slug, setSlug] = useState('');
+
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.auth);
+  console.log(user);
 
   const fileHandler = (e) => {
     const name = e.target.files[0].name;
