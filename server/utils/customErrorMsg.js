@@ -1,11 +1,12 @@
-function errors(data) {
+function customErrors(data) {
   const errorsArray = [];
   for (const body in data) {
     if (data[body].length === 0) {
-      errorsArray.push({ msg: `${body} is required.` });
+      const bodyName = body.charAt(0).toUpperCase() + body.slice(1);
+      errorsArray.push({ msg: `${bodyName} is required.` });
     }
   }
   return errorsArray;
 }
 
-export { errors };
+export { customErrors };

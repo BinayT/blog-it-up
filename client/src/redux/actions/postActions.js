@@ -16,6 +16,6 @@ export const createPost = (postData) => async (dispatch) => {
     const { data } = await axios.post('/create_post', postData, config);
     console.log(data);
   } catch (error) {
-    console.log(error.message);
+    console.log(error.response);
   }
 };
