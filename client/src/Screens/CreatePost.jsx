@@ -16,8 +16,9 @@ const CreatePost = () => {
   const [slug, setSlug] = useState('');
 
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.auth);
-  console.log(user);
+  const {
+    user: { name, _id },
+  } = useSelector((state) => state.auth);
 
   const fileHandler = (e) => {
     const name = e.target.files[0].name;
@@ -39,8 +40,17 @@ const CreatePost = () => {
 
   const submitPostHandler = (e) => {
     e.preventDefault();
+    const formData = new FormData();
+    formData.append('title', title);
+    formData.append('body', postBody);
+    formData.append('image', image);
+    formData.append('description', description);
+    formData.append('slug', slug);
+    formData.append('name', name);
+    formData.append('id', _id);
+    dispatch(createPost(formData));
     alert(
-      `title: ${title}\nimageName: ${imageName}\npostBody: ${postBody}\nslug: ${slug}\nimage: ${image}`
+      `title: ${title}\nimageName: ${imageName}\npostBody: ${postBody}\nslug: ${slug}\nimage: ${image}\nuser: ${name} and id: ${_id}`
     );
   };
 
