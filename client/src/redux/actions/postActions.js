@@ -13,5 +13,9 @@ export const createPost = (postData) => async (dispatch) => {
         Authorization: `Bearer ${token}`,
       },
     };
-  } catch (error) {}
+    const { data } = await axios.post('/create_post', postData, config);
+    console.log(data);
+  } catch (error) {
+    console.log(error.message);
+  }
 };
