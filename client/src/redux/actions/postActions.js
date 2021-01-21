@@ -5,4 +5,13 @@ import {
   CREATE_POST_ERROR,
 } from '../constants/postConstants';
 
-export const createPost = (postData) => async (dispatch) => {};
+export const createPost = (postData) => async (dispatch) => {
+  const token = localStorage.getItem('jwtToken');
+  try {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+  } catch (error) {}
+};
