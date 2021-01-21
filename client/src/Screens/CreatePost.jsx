@@ -49,9 +49,6 @@ const CreatePost = () => {
     formData.append('name', name);
     formData.append('id', _id);
     dispatch(createPost(formData));
-    /* alert(
-      `title: ${title}\nimageName: ${imageName}\npostBody: ${postBody}\nslug: ${slug}\nimage: ${image}\nuser: ${name} and id: ${_id}`
-    ); */
   };
 
   return (

@@ -7,6 +7,7 @@ import {
 
 export const createPost = (postData) => async (dispatch) => {
   const token = localStorage.getItem('jwtToken');
+  dispatch({ type: CREATE_POST_REQUEST });
   try {
     const config = {
       headers: {
@@ -14,8 +15,8 @@ export const createPost = (postData) => async (dispatch) => {
       },
     };
     const { data } = await axios.post('/create_post', postData, config);
-    console.log(data);
+    dispatch({ type: CREATE_POST_SUCCESS });
   } catch (error) {
-    console.log(error.response);
+    dispatch({ type: CREATE_POST_ERROR, payload: error.response.data.errors });
   }
 };
