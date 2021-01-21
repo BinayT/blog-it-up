@@ -80,6 +80,21 @@ const CreatePost = () => {
                     id='body'
                   />
                 </div>
+                <div className='group'>
+                  <label htmlFor='description'>Meta Desription</label>
+                  <textarea
+                    name=''
+                    id='description'
+                    defaultValue={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    cols='20'
+                    rows='4'
+                    className='group__control'
+                    placeholder='Describe what people can expect from this post here.'
+                    maxLength='150'
+                  ></textarea>
+                  <p className='length'>{description.length}/150</p>
+                </div>
               </div>
             </div>
             <div className='col-6 p-15'>
@@ -98,21 +113,7 @@ const CreatePost = () => {
                     placeholder='Post URL...'
                   />
                 </div>
-                <div className='groupp'>
-                  <label htmlFor='description'>Meta Desription</label>
-                  <textarea
-                    name=''
-                    id='description'
-                    defaultValue={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    cols='20'
-                    rows='4'
-                    className='group__control'
-                    placeholder='Describe what people can expect from this post here.'
-                    maxLength='150'
-                  ></textarea>
-                  <p className='length'>{description.length}/150</p>
-                </div>
+
                 <div className='group' style={{ marginTop: '10px' }}>
                   <div className='imagePreview'>
                     <label htmlFor='imagePreview'>Image Preview</label>
