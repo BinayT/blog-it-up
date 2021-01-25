@@ -17,6 +17,7 @@ export const createPost = (postData) => async (dispatch) => {
     const { data } = await axios.post('/create_post', postData, config);
     dispatch({ type: CREATE_POST_SUCCESS });
   } catch (error) {
+    console.log(error.response);
     dispatch({ type: CREATE_POST_ERROR, payload: error.response.data.errors });
   }
 };
