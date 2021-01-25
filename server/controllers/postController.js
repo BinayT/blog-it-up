@@ -19,7 +19,7 @@ const createPost = (req, res) => {
         splitExtension !== 'png'
       ) {
         errors.push({
-          msg: 'Please only upload images of .jpg, .jpeg or .png extensions.',
+          msg: `".${splitExtension}" isn't a valid image extension. Please only use .jpg, .jpeg or .png extensions.`,
         });
       }
     }
