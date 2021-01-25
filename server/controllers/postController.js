@@ -1,6 +1,11 @@
 import formidable from 'formidable';
 import { v4 as uuidv4 } from 'uuid';
 import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 import { customErrors } from '../utils/customErrorMsg.js';
 
@@ -31,10 +36,6 @@ const createPost = (req, res) => {
         fs.copyFile(files.image.path, newPath, (err) => {
           if (!err) {
             console.log('Image uploaded');
-          } else {
-            errors.push({
-              msg: 'There was a problem uploading the image. Try again later.',
-            });
           }
         });
       }
