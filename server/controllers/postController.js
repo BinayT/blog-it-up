@@ -8,11 +8,13 @@ const createPost = (req, res) => {
     const { title, body, description, slug, id, name } = fields;
     const data = { title, body, description, slug };
     const errors = customErrors(data);
+
     if (Object.keys(files).length === 0) {
       errors.push({ msg: 'Image is required' });
     } else {
       const { type } = files.image;
       const splitExtension = type.split('/')[1];
+
       if (
         splitExtension !== 'jpeg' ||
         splitExtension !== 'jpg' ||
