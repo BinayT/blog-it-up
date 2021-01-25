@@ -26,7 +26,7 @@ const createPost = (req, res) => {
         });
       } else {
         files.image.name = `${uuidv4()}.${splitExtension}`;
-        console.log(files.image.name);
+        const newPath = `${__dirname}/../../client/public/images/${files.image.name}`;
       }
     }
     errors.length !== 0 && res.status(400).json({ errors, files });
